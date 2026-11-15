@@ -23,15 +23,24 @@ class InquiryController {
         message
       });
 
-      // Send email asynchronously via Resend (does not block client response)
-      sendInquiryNotification({ name, email, company, phone, service, message }).catch(err => {
-        console.error('[InquiryController] Email send background error:', err);
-      });
+      // Send email via Resend and report the outcome (inquiry is already saved either way)
+      let emailResult;
+      try {
+        emailResult = await sendInquiryNotification({ name, email, company, phone, service, message });
+      } catch (err) {
+        console.error('[InquiryController] Email send error:', err);
+        emailResult = { success: false, error: err.message };
+      }
+      if (!emailResult.success) {
+        console.error('[InquiryController] Inquiry', inquiryId, 'saved but email NOT sent:', emailResult.reason || emailResult.error);
+      }
 
       return res.status(201).json({
         success: true,
         message: 'Inquiry received successfully! Our staffing team will contact you shortly.',
-        inquiryId
+        inquiryId,
+        emailSent: !!emailResult.success,
+        ...(emailResult.success ? {} : { emailError: emailResult.reason || emailResult.error })
       });
     } catch (error) {
       next(error);
