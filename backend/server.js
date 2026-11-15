@@ -11,7 +11,7 @@ app.listen(PORT, () => {
   console.log(`===============================================`);
   console.log(`🚀 Prime Staffing Services Server running`);
   console.log(`📍 Endpoint: http://localhost:${PORT}`);
-  console.log(`🏢 Contact: Vijay masani`);
+  console.log(`🏢 Contact: HR Executive`);
   console.log(`📌 Office: Rau, Indore (M.P.)`);
   console.log(`===============================================`);
 });

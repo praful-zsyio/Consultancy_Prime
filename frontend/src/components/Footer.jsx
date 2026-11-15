@@ -155,9 +155,14 @@ export default function Footer() {
 
         {/* ── Bottom bar ── */}
         <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '1rem', paddingTop: '1.5rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-          <p style={{ color: 'rgba(255,255,255,0.30)', fontSize: '12px' }}>
-            © {new Date().getFullYear()} {BRAND.name}. All rights reserved.
-          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+            <p style={{ color: 'rgba(255,255,255,0.40)', fontSize: '12px', margin: 0 }}>
+              © {new Date().getFullYear()} {BRAND.name}. All rights reserved.
+            </p>
+            <p style={{ color: 'rgba(255,255,255,0.40)', fontSize: '11px', margin: 0 }}>
+              Details designed by <a href="https://zsyio.com" target="_blank" rel="noopener noreferrer" style={{ color: '#ec2029', textDecoration: 'none', fontWeight: 600 }}>zsyio.com</a> and powered by <a href="https://zsyio.com" target="_blank" rel="noopener noreferrer" style={{ color: '#fff', textDecoration: 'none', fontWeight: 600 }}>zsyio</a>.
+            </p>
+          </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
             {['Privacy Policy', 'Terms of Service'].map((item) => (
               <a

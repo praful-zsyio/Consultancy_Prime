@@ -10,9 +10,9 @@ class CompanyController {
       tagline: 'Skills · Talent · Staff',
       short: 'Prime Staffing',
       established: 2021,
-      contactPerson: 'Vijay masani',
-      email: 'contact@primestaffing.in',
-      phone: '9926572625',
+      contactPerson: 'HR Executive',
+      email: 'info@primestaffingservice.com',
+      phone: '9371857836',
       address: `S/O: Shivnarayan Mandle\n1170, Station Road, Rau, Indore\nRangwasa\nRangwasa\nIndore, Madhya Pradesh – 453331`,
       services: [
         'General Staffing',

@@ -12,7 +12,7 @@ export default function ContactPage() {
             Speak With <span className="gradient-text">Our HR &amp; Staffing Team</span>
           </h1>
           <p className="section-sub" style={{ maxWidth: '42rem' }}>
-            Visit our office at Rau, Indore, or connect with {BRAND.contactPerson} and our recruitment team for your staffing requirements.
+            Visit our office at Rau, Indore, or connect with our {BRAND.contactPerson} and staffing team for your recruitment requirements.
           </p>
         </div>
       </section>

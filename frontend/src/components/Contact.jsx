@@ -244,7 +244,7 @@ export default function Contact() {
                     </label>
                     <input
                       id="f-email" name="email" type="email" autoComplete="email"
-                      placeholder="contact@primestaffing.in"
+                      placeholder="info@primestaffingservice.com"
                       value={form.email} onChange={handleChange}
                       className="form-input"
                       aria-required="true"
@@ -270,7 +270,7 @@ export default function Contact() {
                     <label htmlFor="f-phone" className="form-label">Phone</label>
                     <input
                       id="f-phone" name="phone" type="tel" autoComplete="tel"
-                      placeholder="9926572625"
+                      placeholder="9371857836"
                       value={form.phone} onChange={handleChange}
                       className="form-input"
                     />

@@ -10,10 +10,10 @@ export const BRAND = {
   tagline:       'Skills · Talent · Staff',
   short:         'Prime Staffing',
   abbr:          'PSS',
-  url:           'https://primestaffing.in',
-  email:         'contact@primestaffing.in',
-  phone:         '9926572625',
-  contactPerson: 'Vijay masani',
+  url:           'https://primestaffingservice.com',
+  email:         'info@primestaffingservice.com',
+  phone:         '9371857836',
+  contactPerson: 'HR Executive',
   estYear:       '2021',
   address:  `S/O: Shivnarayan Mandle
 1170, Station Road, Rau, Indore

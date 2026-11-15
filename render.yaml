@@ -15,6 +15,6 @@ services:
       - key: RESEND_API_KEY
         sync: false
       - key: NOTIFICATION_EMAIL
-        value: contact@primestaffing.in
+        value: info@primestaffingservice.com
       - key: RESEND_FROM_EMAIL
         value: onboarding@resend.dev

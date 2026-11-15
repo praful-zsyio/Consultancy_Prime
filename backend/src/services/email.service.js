@@ -12,7 +12,7 @@ async function sendInquiryNotification({ name, email, company, phone, service, m
     return { success: false, reason: 'API_KEY_NOT_CONFIGURED' };
   }
 
-  const toEmail = process.env.NOTIFICATION_EMAIL || 'contact@primestaffing.in';
+  const toEmail = process.env.NOTIFICATION_EMAIL || 'info@primestaffingservice.com';
   const fromEmail = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
 
   const htmlContent = `
