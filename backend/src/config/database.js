@@ -1,7 +1,9 @@
 const Database = require('better-sqlite3');
 const path = require('path');
 const bcrypt = require('bcryptjs');
-require('dotenv').config();
+try {
+  require('dotenv').config();
+} catch (e) {}
 
 const dbPath = path.resolve(__dirname, '../../consultancy.db');
 const db = new Database(dbPath);

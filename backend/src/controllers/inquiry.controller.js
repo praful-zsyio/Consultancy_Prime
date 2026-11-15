@@ -1,8 +1,9 @@
 const InquiryModel = require('../models/inquiry.model');
+const { sendInquiryNotification } = require('../services/email.service');
 
 class InquiryController {
   // POST /api/inquiries
-  static createInquiry(req, res, next) {
+  static async createInquiry(req, res, next) {
     try {
       const { name, email, company, phone, service, message } = req.body;
 
@@ -20,6 +21,11 @@ class InquiryController {
         phone,
         service,
         message
+      });
+
+      // Send email asynchronously via Resend (does not block client response)
+      sendInquiryNotification({ name, email, company, phone, service, message }).catch(err => {
+        console.error('[InquiryController] Email send background error:', err);
       });
 
       return res.status(201).json({

@@ -186,7 +186,7 @@ export default function Contact() {
                 <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#ec2029' }}>Response Guarantee</span>
               </div>
               <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.60)', lineHeight: 1.65 }}>
-                Every inquiry gets a personal reply within <strong style={{ color: '#fff' }}>24 business hours</strong>. Stored safely in our SQLite database.
+                Every inquiry is dispatched instantly via email and recorded securely in our database. We reply within <strong style={{ color: '#fff' }}>24 business hours</strong>.
               </p>
             </div>
           </motion.div>
@@ -244,7 +244,7 @@ export default function Contact() {
                     </label>
                     <input
                       id="f-email" name="email" type="email" autoComplete="email"
-                      placeholder="skilltaanlent@skilltanlent.com"
+                      placeholder="contact@primestaffing.in"
                       value={form.email} onChange={handleChange}
                       className="form-input"
                       aria-required="true"

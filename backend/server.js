@@ -1,13 +1,17 @@
-require('dotenv').config();
+try {
+  require('dotenv').config();
+} catch (e) {
+  // dotenv optional if environment variables are provided by platform (e.g. Render)
+}
 const app = require('./src/app');
 
 const PORT = process.env.PORT || 8000;
 
 app.listen(PORT, () => {
   console.log(`===============================================`);
-  console.log(`🚀 SkillTalent MVC Server running`);
+  console.log(`🚀 Prime Staffing Services Server running`);
   console.log(`📍 Endpoint: http://localhost:${PORT}`);
-  console.log(`🏢 HR Manager: Shubham Paradkar`);
-  console.log(`📌 Office: Bengali Square, Indore (M.P.)`);
+  console.log(`🏢 Contact: Vijay masani`);
+  console.log(`📌 Office: Rau, Indore (M.P.)`);
   console.log(`===============================================`);
 });
