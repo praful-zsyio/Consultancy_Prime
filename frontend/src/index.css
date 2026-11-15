@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
+@import "tailwindcss";
+
+/* ══════════════════════════════════════════════════════
+   DESIGN TOKENS - PURE DARK THEME (download.md)
+══════════════════════════════════════════════════════ */
+:root {
+  /* Colour Variables - Dark Theme */
+  --c-text-primary:   #ffffff;
+  --c-text-secondary: #ffffff;
+  --c-text-body:      rgba(255,255,255,0.70);
+  --c-text-muted:     rgba(255,255,255,0.50);
+  --c-text-faint:     rgba(255,255,255,0.30);
+  --c-accent:         #ec2029;
+  --c-accent-dark:    #c4181f;
+  
+  --c-surface-base:   #000000;
+  --c-surface-muted:  #020101;
+  --c-surface-card:   rgba(255,255,255,0.025);
+  --c-surface-card-hover: rgba(236,32,41,0.035);
+  --c-surface-input:  rgba(255,255,255,0.04);
+  --c-border:         rgba(255,255,255,0.07);
+  --c-border-hover:   rgba(236,32,41,0.35);
+  --c-border-input:   rgba(255,255,255,0.10);
+  --c-nav-bg:         rgba(0,0,0,0.88);
+  --c-nav-scrolled:   rgba(0,0,0,0.96);
+  --c-hero-glow:      rgba(236,32,41,0.22);
+  --c-grid-line:      #ffffff;
+  --c-scrollbar-track: #0a0a0a;
+
+  /* Typography (download.md) */
+  --font: 'Mulish', sans-serif;
+  --text-xs:   8px;
+  --text-sm:  11px;
+  --text-md:  12px;
+  --text-lg:  13px;
+  --text-xl:  14px;
+  --text-2xl: 15px;
+  --text-3xl: 16px;
+  --text-4xl: 18px;
+  --fw-base:  500;
+  --lh-base:  22px;
+
+  /* Radius (download.md) */
+  --r-xs:  10px;
+  --r-sm:  40px;
+  --r-md:  50px;
+  --r-btn: 12px;
+  --r-card: 16px;
+
+  /* Spacing */
+  --section-py: clamp(5rem, 8vw, 8rem);
+  --container: 80rem;   /* 1280px */
+  --gutter: clamp(1rem, 4vw, 2rem);
+}
+
+/* ══════════════════════════════════════════════════════
+   RESET & BASE
+══════════════════════════════════════════════════════ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin:  0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  background-color: #000000;
+}
+
+body {
+  font-family:  var(--font);
+  font-size:    var(--text-2xl);
+  font-weight:  var(--fw-base);
+  line-height:  var(--lh-base);
+  background:   #000000;
+  color:        #ffffff;
+  -webkit-font-smoothing:  antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img, video, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+/* ══════════════════════════════════════════════════════
+   ACCESSIBILITY
+══════════════════════════════════════════════════════ */
+:focus-visible {
+  outline:        2px solid var(--c-accent);
+  outline-offset: 3px;
+  border-radius:  4px;
+}
+
+.skip-link {
+  position:    absolute;
+  left:        -9999px;
+  top:         8px;
+  z-index:     10000;
+  padding:     10px 20px;
+  background:  var(--c-accent);
+  color:       #fff;
+  font-weight: 700;
+  font-size:   14px;
+  border-radius: 8px;
+}
+.skip-link:focus { left: 8px; }
+
+/* ══════════════════════════════════════════════════════
+   SCROLLBAR
+══════════════════════════════════════════════════════ */
+::-webkit-scrollbar       { width: 5px; }
+::-webkit-scrollbar-track { background: var(--c-scrollbar-track); }
+::-webkit-scrollbar-thumb { background: var(--c-accent); border-radius: 3px; }
+
+/* ══════════════════════════════════════════════════════
+   SELECTION
+══════════════════════════════════════════════════════ */
+::selection { background: var(--c-accent); color: #fff; }
+
+/* ══════════════════════════════════════════════════════
+   UTILITY CLASSES
+══════════════════════════════════════════════════════ */
+.gradient-text {
+  background:              linear-gradient(135deg, #ec2029 0%, #ff525b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip:         text;
+}
+
+.container {
+  width:     100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: var(--section-py);
+  position: relative;
+}
+
+.section-divider::before {
+  content:  '';
+  display:  block;
+  position: absolute;
+  inset-inline: 0;
+  top:      0;
+  height:   1px;
+  background: linear-gradient(90deg, transparent, rgba(236,32,41,0.35), transparent);
+}
+
+.card {
+  background:    var(--c-surface-card);
+  border:        1px solid var(--c-border);
+  border-radius: var(--r-card);
+  transition:    border-color 0.25s ease, transform 0.25s ease, background 0.25s ease;
+}
+.card:hover {
+  border-color: var(--c-border-hover);
+  background:   var(--c-surface-card-hover);
+}
+
+.btn-primary {
+  display:         inline-flex;
+  align-items:     center;
+  gap:             0.5rem;
+  padding:         0.875rem 2rem;
+  font-family:     var(--font);
+  font-size:       var(--text-lg);
+  font-weight:     700;
+  color:           #ffffff !important;
+  background:      linear-gradient(135deg, #ec2029, #c4181f);
+  border-radius:   var(--r-sm);
+  transition:      transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  white-space:     nowrap;
+  box-shadow:      0 4px 15px rgba(236,32,41,0.3);
+}
+.btn-primary:hover  { transform: scale(1.04); box-shadow: 0 6px 20px rgba(236,32,41,0.4); }
+.btn-primary:active { transform: scale(0.96); }
+
+.btn-outline {
+  display:         inline-flex;
+  align-items:     center;
+  gap:             0.5rem;
+  padding:         0.875rem 2rem;
+  font-family:     var(--font);
+  font-size:       var(--text-lg);
+  font-weight:     700;
+  color:           #ffffff;
+  background:      transparent;
+  border:          1px solid rgba(255,255,255,0.20);
+  border-radius:   var(--r-sm);
+  transition:      border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  white-space:     nowrap;
+}
+.btn-outline:hover {
+  border-color: rgba(255,255,255,0.40);
+  background:   rgba(255,255,255,0.05);
+  transform:    scale(1.03);
+}
+
+.eyebrow {
+  display:        inline-block;
+  font-size:      11px;
+  font-weight:    700;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color:          var(--c-accent);
+  margin-bottom:  1rem;
+}
+
+.section-heading {
+  font-size:   clamp(1.75rem, 4vw, 3rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color:       #ffffff;
+  margin-bottom: 1rem;
+}
+
+.section-sub {
+  font-size:   var(--text-2xl);
+  color:       rgba(255,255,255,0.55);
+  line-height: 1.65;
+  max-width:   38rem;
+  margin-inline: auto;
+}
+
+.form-input {
+  width:          100%;
+  padding:        0.75rem 1rem;
+  font-family:    var(--font);
+  font-size:      var(--text-lg);
+  font-weight:    500;
+  color:          #ffffff;
+  background:     var(--c-surface-input);
+  border:         1px solid var(--c-border-input);
+  border-radius:  var(--r-btn);
+  transition:     border-color 0.2s ease, background 0.2s ease;
+  outline:        none;
+}
+.form-input::placeholder { color: var(--c-text-faint); }
+.form-input:hover  { border-color: rgba(255,255,255,0.20); }
+.form-input:focus  {
+  border-color: var(--c-accent);
+  background:   rgba(255,255,255,0.06);
+  outline:      none;
+}
+
+select.form-input option {
+  background-color: #18181b;
+  color: #ffffff;
+  padding: 8px 12px;
+}
+
+.form-label {
+  display:        block;
+  font-size:      11px;
+  font-weight:    700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color:          rgba(255,255,255,0.50);
+  margin-bottom:  0.5rem;
+}
+
+.form-error {
+  margin-top:  0.4rem;
+  font-size:   11px;
+  font-weight: 600;
+  color:       var(--c-accent);
+}
+
+.live-dot {
+  position: relative;
+  display:  inline-flex;
+  width:    0.625rem;
+  height:   0.625rem;
+  flex-shrink: 0;
+}
+.live-dot::before {
+  content:  '';
+  position: absolute;
+  inset:    0;
+  border-radius: 50%;
+  background:    var(--c-accent);
+  animation:     ping 1.2s cubic-bezier(0,0,0.2,1) infinite;
+  opacity:       0.75;
+}
+.live-dot::after {
+  content:       '';
+  position:      relative;
+  display:       block;
+  width:         100%;
+  height:        100%;
+  border-radius: 50%;
+  background:    var(--c-accent);
+}
+@keyframes ping {
+  75%, 100% { transform: scale(2); opacity: 0; }
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+.animate-spin { animation: spin 1s linear infinite; }
