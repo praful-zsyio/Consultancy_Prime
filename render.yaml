@@ -1,0 +1,20 @@
+services:
+  # Backend Web Service
+  - type: web
+    name: prime-staffing-backend
+    env: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 8000
+      - key: RESEND_API_KEY
+        sync: false
+      - key: NOTIFICATION_EMAIL
+        value: contact@primestaffing.in
+      - key: RESEND_FROM_EMAIL
+        value: onboarding@resend.dev
